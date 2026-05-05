@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zahra Safdari Fesaghandis</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --cream: #F8F6F1;
+    --ink: #1C1C1E;
+    --ink-soft: #4A4A52;
+    --ink-muted: #8A8A95;
+    --accent: #3B6E6E;
+    --accent-light: #EAF2F2;
+    --accent-warm: #C27B4A;
+    --border: #E4E0D8;
+    --white: #FFFFFF;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Jost', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(248,246,241,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 64px;
+  }
+  .nav-name {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink-soft);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 64px;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8% 6% 8% 8%;
+    border-right: 1px solid var(--border);
+  }
+  .hero-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+  .hero-label::before {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 1px;
+    background: var(--accent);
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-inst {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--ink-soft);
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+  .hero-bio {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding: 0.35rem 0.85rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 100px;
+  }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--sans);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.22s;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    border: 1.5px solid var(--accent);
+  }
+  .btn-primary:hover { background: #2d5656; border-color: #2d5656; }
+  .btn-outline {
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid var(--border);
+  }
+  .btn-outline:hover { border-color: var(--ink-soft); }
+
+  .hero-right {
+    display: flex; flex-direction: column; justify-content: center;
+    align-items: center; padding: 8% 8% 8% 6%;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-right::before {
+    content: '';
+    position: absolute; top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    opacity: 0.6;
+  }
+  .hero-photo-wrap {
+    position: relative; z-index: 1;
+    width: 200px; height: 200px;
+    margin-bottom: 2.5rem;
+  }
+  .hero-photo-wrap::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent);
+    opacity: 0.4;
+  }
+  .hero-photo {
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--accent-light);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+    font-size: 4rem;
+    color: var(--accent);
+    font-style: italic;
+    user-select: none;
+  }
+  .hero-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+    width: 100%; max-width: 320px;
+    position: relative; z-index: 1;
+  }
+  .stat-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.2rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-label {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 8%; }
+  section:nth-child(even) { background: var(--white); }
+
+  .section-header {
+    display: flex; align-items: baseline; gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+  .section-num {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--accent-warm);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 0.35rem;
+  }
+
+  /* ── PUBLICATIONS ── */
+  .pub-list { display: flex; flex-direction: column; gap: 1.5rem; }
+  .pub-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.8rem 2rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.5rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  section:nth-child(even) .pub-card { background: var(--white); }
+  .pub-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(59,110,110,0.08); }
+  .pub-year {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--accent);
+    min-width: 52px;
+    padding-top: 0.1rem;
+  }
+  .pub-content {}
+  .pub-type {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-warm);
+    margin-bottom: 0.5rem;
+  }
+  .pub-title {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+  }
+  .pub-authors {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    margin-bottom: 0.75rem;
+  }
+  .pub-authors strong { color: var(--ink-soft); font-weight: 500; }
+  .pub-venue {
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--ink-muted);
+    margin-bottom: 1rem;
+  }
+  .pub-abstract {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .pub-links { display: flex; gap: 0.75rem; }
+  .pub-link {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.3rem 0.75rem;
+    border-radius: 3px;
+    transition: all 0.2s;
+  }
+  .pub-link:hover { background: var(--accent); color: white; }
+
+  /* ── RESEARCH ── */
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .research-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .research-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--accent);
+    transition: height 0.3s;
+  }
+  .research-card:hover::before { height: 100%; }
+  .research-card:hover { border-color: var(--accent); box-shadow: 0 8px 30px rgba(59,110,110,0.1); }
+  .research-icon {
+    width: 42px; height: 42px;
+    background: var(--accent-light);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+  }
+  .research-title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    color: var(--ink);
+  }
+  .research-desc {
+    font-size: 0.87rem;
+    line-height: 1.75;
+    color: var(--ink-soft);
+  }
+
+  /* ── CV ── */
+  .cv-timeline { display: flex; flex-direction: column; gap: 0; }
+  .cv-section-title {
+    font-family: var(--serif);
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .cv-item {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 1.5rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .cv-item:last-child { border-bottom: none; }
+  .cv-period {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+    padding-top: 0.15rem;
+  }
+  .cv-role {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+  .cv-place {
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+  }
+  .cv-detail {
+    font-size: 0.83rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .cv-download {
+    margin-top: 3rem;
+    text-align: center;
+  }
+
+  /* ── TEACHING ── */
+  .teaching-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .teaching-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  section:nth-child(even) .teaching-card { background: var(--white); }
+  .teaching-course {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .teaching-role {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .teaching-meta {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+  }
+
+  /* ── BLOG ── */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .blog-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: all 0.22s;
+    cursor: pointer;
+  }
+  .blog-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .blog-date {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 0.75rem;
+  }
+  .blog-title {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.35;
+    margin-bottom: 0.75rem;
+  }
+  .blog-excerpt {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .blog-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--ink); color: white; }
+  #contact .section-title { color: white; }
+  #contact .section-num { color: var(--accent-warm); }
+  #contact .section-line { background: rgba(255,255,255,0.12); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .contact-text {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 2rem;
+  }
+  .contact-links { display: flex; flex-direction: column; gap: 1.2rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 1rem;
+    text-decoration: none;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9rem;
+    transition: color 0.2s;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .contact-link:last-child { border-bottom: none; }
+  .contact-link:hover { color: white; }
+  .contact-link-icon {
+    width: 38px; height: 38px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    transition: background 0.2s;
+  }
+  .contact-link:hover .contact-link-icon { background: var(--accent); }
+  .contact-link-info {}
+  .contact-link-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 0.15rem;
+  }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-group {}
+  .form-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 0.4rem;
+  }
+  .form-input, .form-textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 5px;
+    padding: 0.85rem 1rem;
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    color: white;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.25); }
+  .form-input:focus, .form-textarea:focus { border-color: var(--accent); }
+  .form-textarea { height: 130px; resize: vertical; }
+  .btn-contact {
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.9rem 1.5rem;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+  }
+  .btn-contact:hover { background: #2d5656; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 2rem 8%;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer-text { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+  .footer-name {
+    font-family: var(--serif);
+    font-style: italic;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    #home { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 8% 6%; }
+    nav { padding: 0 5%; }
+    .nav-links { display: none; }
+    section { padding: 4rem 6%; }
+    .cv-item { grid-template-columns: 1fr; gap: 0.3rem; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .pub-card { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-name">Zahra Safdari</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#cv">CV</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-left">
+    <div class="hero-label">M.Sc. Computer Engineering · Bilkent University</div>
+    <h1 class="hero-name">Zahra<br><em>Safdari</em><br>Fesaghandis</h1>
+    <p class="hero-inst">Research & Teaching Assistant · ASAP Lab</p>
+    <p class="hero-bio">
+      I am a Master's student at Bilkent University working at the intersection of privacy-preserving machine learning, large language models, and social computing. My research addresses how AI can be made safer, fairer, and more inclusive—especially for low-resource languages.
+    </p>
+    <div class="hero-tags">
+      <span class="tag">PPML</span>
+      <span class="tag">Genomic Beacon Defense</span>
+      <span class="tag">NLP</span>
+      <span class="tag">Social Computing</span>
+      <span class="tag">LLMs</span>
+    </div>
+    <div class="hero-cta">
+      <a href="#publications" class="btn btn-primary">View Publications</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-wrap">
+      <div class="hero-photo">Z</div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Papers</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Courses TA'd</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Research Areas</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">2+</div>
+        <div class="stat-label">Years Research</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header fade-up">
+    <span class="section-num">01.</span>
+    <h2 class="section-title">About</h2>
+    <div class="section-line"></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;" class="fade-up">
+    <div>
+      <p style="font-family:var(--serif);font-size:1.25rem;font-weight:300;line-height:1.8;color:var(--ink-soft);margin-bottom:1.5rem;">
+        I am a Master's student in Computer Engineering at <strong style="color:var(--ink);">Bilkent University</strong>, Ankara, Turkey, where I also serve as a Research and Teaching Assistant at the <strong style="color:var(--ink);">ASAP Lab</strong> under the mentorship of <strong style="color:var(--ink);">Dr. Sinem Sav</strong>.
+      </p>
+      <p style="font-size:0.92rem;line-height:1.85;color:var(--ink-soft);margin-bottom:1.5rem;">
+        My research sits at the intersection of privacy-preserving machine learning (PPML), genomic data security, natural language processing, and social computing. I am particularly passionate about building AI systems that are robust, privacy-aware, and culturally inclusive—especially for underrepresented and low-resource languages such as Persian.
+      </p>
+      <p style="font-size:0.92rem;line-height:1.85;color:var(--ink-soft);">
+        Before joining Bilkent, I completed my undergraduate studies in Computer Engineering at the <strong style="color:var(--ink);">University of Tabriz</strong>, Iran, where I developed a strong foundation in machine learning and software systems.
+      </p>
+    </div>
+    <div>
+      <div style="background:var(--accent-light);border-radius:8px;padding:2rem;margin-bottom:1.5rem;">
+        <h3 style="font-family:var(--serif);font-size:1rem;font-weight:500;color:var(--accent);margin-bottom:1rem;letter-spacing:0.05em;">Research Interests</h3>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
+          <li style="font-size:0.87rem;color:var(--ink-soft);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--accent);font-size:1rem;flex-shrink:0;">→</span> Privacy-Preserving Machine Learning</li>
+          <li style="font-size:0.87rem;color:var(--ink-soft);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--accent);font-size:1rem;flex-shrink:0;">→</span> Genomic Beacon Defense & Membership Inference</li>
+          <li style="font-size:0.87rem;color:var(--ink-soft);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--accent);font-size:1rem;flex-shrink:0;">→</span> Natural Language Processing & LLMs</li>
+          <li style="font-size:0.87rem;color:var(--ink-soft);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--accent);font-size:1rem;flex-shrink:0;">→</span> Social Computing & Hate Speech Detection</li>
+          <li style="font-size:0.87rem;color:var(--ink-soft);display:flex;gap:0.75rem;align-items:flex-start;"><span style="color:var(--accent);font-size:1rem;flex-shrink:0;">→</span> Low-Resource & Multilingual NLP</li>
+        </ul>
+      </div>
+      <div style="border:1px solid var(--border);border-radius:8px;padding:1.5rem;">
+        <h3 style="font-family:var(--serif);font-size:1rem;font-weight:500;color:var(--ink);margin-bottom:0.75rem;letter-spacing:0.05em;">Affiliations</h3>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;">
+          <div style="font-size:0.87rem;color:var(--ink-soft);">🎓 <strong>Bilkent University</strong> — M.Sc. Computer Engineering</div>
+          <div style="font-size:0.87rem;color:var(--ink-soft);">🔬 <strong>ASAP Lab</strong> — Research Assistant (PI: Dr. Sinem Sav)</div>
+          <div style="font-size:0.87rem;color:var(--ink-soft);">📚 <strong>University of Tabriz</strong> — B.Sc. Computer Engineering</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-header fade-up">
+    <span class="section-num">02.</span>
+    <h2 class="section-title">Publications</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="pub-list">
+
+    <div class="pub-card fade-up">
+      <div class="pub-year">'26</div>
+      <div class="pub-content">
+        <div class="pub-type">Preprint · arXiv · March 2026</div>
+        <div class="pub-title">ParsCN: A Persian Dataset for Counter-Narrative Generation to Combat Online Hate Speech</div>
+        <div class="pub-authors"><strong>Zahra Safdari Fesaghandis</strong>, Suman Kalyan Maity</div>
+        <div class="pub-venue">arXiv:2603.27011 · Bilkent University &amp; Missouri University of Science and Technology</div>
+        <div class="pub-abstract">
+          We introduce ParsCN, the first and most comprehensive Persian counter-narrative dataset, consisting of 1,100 hate speech and counter-narrative pairs with fine-grained annotations across six target groups and six countering strategies. A novel multi-stage framework integrates culturally-informed human annotation with few-shot LLM-augmented generation, enabling high-quality, diverse counter-narratives while significantly reducing annotation costs.
+        </div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2603.27011" target="_blank" class="pub-link">arXiv</a>
+          <a href="https://github.com/zahrasafdari/ParsCN-Dataset" target="_blank" class="pub-link">Dataset</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-card fade-up">
+      <div class="pub-year">'26</div>
+      <div class="pub-content">
+        <div class="pub-type">Preprint · arXiv · March 2026</div>
+        <div class="pub-title">Multilingual Hate Speech Detection and Counterspeech Generation: A Comprehensive Survey and Practical Guide</div>
+        <div class="pub-authors"><strong>Zahra Safdari Fesaghandis</strong>, Suman Kalyan Maity</div>
+        <div class="pub-venue">arXiv:2603.19279 · Bilkent University &amp; Missouri University of Science and Technology</div>
+        <div class="pub-abstract">
+          A comprehensive survey and practical guide to multilingual hate speech detection and counterspeech generation, integrating recent NLP advances. We analyze why monolingual systems fail in non-English and code-mixed contexts and outline a structured three-phase framework—task design, data curation, and evaluation—drawing on state-of-the-art datasets, models, and metrics to advance inclusive online safety.
+        </div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2603.19279" target="_blank" class="pub-link">arXiv</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RESEARCH / PROJECTS -->
+<section id="research">
+  <div class="section-header fade-up">
+    <span class="section-num">03.</span>
+    <h2 class="section-title">Research &amp; Projects</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="research-grid">
+
+    <div class="research-card fade-up">
+      <div class="research-icon">🛡️</div>
+      <div class="research-title">Privacy-Preserving Machine Learning</div>
+      <div class="research-desc">
+        Investigating techniques such as differential privacy, federated learning, and secure multi-party computation to enable machine learning on sensitive datasets without compromising individual privacy. Conducted at ASAP Lab under Dr. Sinem Sav.
+      </div>
+    </div>
+
+    <div class="research-card fade-up">
+      <div class="research-icon">🧬</div>
+      <div class="research-title">Genomic Beacon Defense</div>
+      <div class="research-desc">
+        Designing defenses against membership inference attacks on genomic data shared through Beacon systems. The goal is to protect individuals' sensitive genetic information while preserving the utility of public health databases.
+      </div>
+    </div>
+
+    <div class="research-card fade-up">
+      <div class="research-icon">🌐</div>
+      <div class="research-title">ParsCN Dataset</div>
+      <div class="research-desc">
+        Built the first comprehensive Persian counter-narrative dataset (1,100 pairs). Developed a scalable multi-stage annotation framework integrating human expertise and LLM augmentation with semantic retrieval, establishing a replicable paradigm for low-resource settings.
+      </div>
+    </div>
+
+    <div class="research-card fade-up">
+      <div class="research-icon">📊</div>
+      <div class="research-title">Multilingual NLP &amp; Social Computing</div>
+      <div class="research-desc">
+        Studying how large language models can be adapted for multilingual hate speech detection and counter-narrative generation across culturally diverse contexts—emphasizing fairness, bias mitigation, and cross-lingual transferability.
+      </div>
+    </div>
+
+    <div class="research-card fade-up">
+      <div class="research-icon">🔍</div>
+      <div class="research-title">LLM Evaluation &amp; Benchmarking</div>
+      <div class="research-desc">
+        Designing comprehensive evaluation frameworks for LLMs using automatic metrics (BERTScore, BLEU, ROUGE, METEOR, Toxicity) and human evaluation. Applied to assess mBART, PersianMind, GPT-4o, and Claude on Persian NLP tasks.
+      </div>
+    </div>
+
+    <div class="research-card fade-up">
+      <div class="research-icon">💬</div>
+      <div class="research-title">Online Safety &amp; Counter-Hate Systems</div>
+      <div class="research-desc">
+        Building AI-powered systems that promote online safety through constructive counterspeech rather than content removal—balancing persuasiveness, empathy, and cultural sensitivity across diverse linguistic environments.
+      </div>
+    </div>
+
+  </div>
+  <div style="margin-top:2.5rem;text-align:center;" class="fade-up">
+    <a href="https://github.com/zahrasafdari" target="_blank" class="btn btn-outline">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      View All Projects on GitHub
+    </a>
+  </div>
+</section>
+
+<!-- CV -->
+<section id="cv">
+  <div class="section-header fade-up">
+    <span class="section-num">04.</span>
+    <h2 class="section-title">Curriculum Vitae</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="cv-timeline fade-up">
+
+    <div class="cv-section-title">Education</div>
+    <div class="cv-item">
+      <div class="cv-period">2023 — Present</div>
+      <div>
+        <div class="cv-role">M.Sc. Computer Engineering</div>
+        <div class="cv-place">Bilkent University · Ankara, Turkey</div>
+        <div class="cv-detail">Specializing in privacy-preserving ML, NLP, and social computing. Research conducted at ASAP Lab under Dr. Sinem Sav.</div>
+      </div>
+    </div>
+    <div class="cv-item">
+      <div class="cv-period">2019 — 2023</div>
+      <div>
+        <div class="cv-role">B.Sc. Computer Engineering</div>
+        <div class="cv-place">University of Tabriz · Tabriz, Iran</div>
+        <div class="cv-detail">Foundation in machine learning, algorithms, and software engineering.</div>
+      </div>
+    </div>
+
+    <div class="cv-section-title">Research Experience</div>
+    <div class="cv-item">
+      <div class="cv-period">2023 — Present</div>
+      <div>
+        <div class="cv-role">Research Assistant</div>
+        <div class="cv-place">ASAP Lab, Bilkent University</div>
+        <div class="cv-detail">Contributing to research in privacy-preserving ML and large language models. Mentored by Dr. Sinem Sav. Authored two arXiv preprints on multilingual NLP and hate speech.</div>
+      </div>
+    </div>
+
+    <div class="cv-section-title">Teaching Experience</div>
+    <div class="cv-item">
+      <div class="cv-period">Fall 2026</div>
+      <div>
+        <div class="cv-role">Teaching Assistant — CS 223</div>
+        <div class="cv-place">Bilkent University</div>
+      </div>
+    </div>
+    <div class="cv-item">
+      <div class="cv-period">Fall 2025</div>
+      <div>
+        <div class="cv-role">Teaching Assistant — CS 223</div>
+        <div class="cv-place">Bilkent University</div>
+      </div>
+    </div>
+
+    <div class="cv-section-title">Skills</div>
+    <div class="cv-item">
+      <div class="cv-period">Languages</div>
+      <div>
+        <div class="cv-detail">Python · PyTorch · HuggingFace Transformers · NumPy · scikit-learn · CUDA</div>
+      </div>
+    </div>
+    <div class="cv-item">
+      <div class="cv-period">Frameworks</div>
+      <div>
+        <div class="cv-detail">Differential Privacy · Federated Learning · Secure MPC · LLM Fine-tuning & Evaluation</div>
+      </div>
+    </div>
+    <div class="cv-item">
+      <div class="cv-period">Tools</div>
+      <div>
+        <div class="cv-detail">Git · LaTeX · SLURM · Jupyter · Weights & Biases</div>
+      </div>
+    </div>
+  </div>
+  <div class="cv-download fade-up">
+    <a href="mailto:zahra.safdari@bilkent.edu.tr?subject=CV Request" class="btn btn-primary">Request Full CV</a>
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section id="teaching">
+  <div class="section-header fade-up">
+    <span class="section-num">05.</span>
+    <h2 class="section-title">Teaching</h2>
+    <div class="section-line"></div>
+  </div>
+  <p style="font-size:0.92rem;color:var(--ink-soft);line-height:1.8;max-width:600px;margin-bottom:2.5rem;" class="fade-up">
+    As a Teaching Assistant at Bilkent University, I support students in developing strong foundations in computer engineering—through office hours, grading, and hands-on mentorship.
+  </p>
+  <div class="teaching-grid">
+    <div class="teaching-card fade-up">
+      <div class="teaching-role">Teaching Assistant</div>
+      <div class="teaching-course">CS 223 — Digital Design</div>
+      <div class="teaching-meta">Bilkent University · Fall 2026</div>
+    </div>
+    <div class="teaching-card fade-up">
+      <div class="teaching-role">Teaching Assistant</div>
+      <div class="teaching-course">CS 223 — Digital Design</div>
+      <div class="teaching-meta">Bilkent University · Fall 2025</div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-header fade-up">
+    <span class="section-num">06.</span>
+    <h2 class="section-title">Blog &amp; Notes</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-card fade-up">
+      <div class="blog-date">Coming Soon</div>
+      <div class="blog-title">Why Counter-Narrative, Not Content Removal? A Case for Constructive AI</div>
+      <div class="blog-excerpt">Exploring why automated counter-narrative systems offer a more nuanced and rights-respecting approach to hate speech mitigation than blunt removal tools.</div>
+      <div class="blog-tag">Social Computing</div>
+    </div>
+    <div class="blog-card fade-up">
+      <div class="blog-date">Coming Soon</div>
+      <div class="blog-title">The Challenge of Low-Resource NLP: Lessons from Building ParsCN</div>
+      <div class="blog-excerpt">A behind-the-scenes look at the design decisions and annotation challenges involved in creating the first Persian counter-narrative dataset.</div>
+      <div class="blog-tag">NLP · Dataset</div>
+    </div>
+    <div class="blog-card fade-up">
+      <div class="blog-date">Coming Soon</div>
+      <div class="blog-title">Privacy in the Age of Genomic Data Sharing</div>
+      <div class="blog-excerpt">An accessible overview of membership inference threats to genomic Beacon systems, and how differential privacy can help protect sensitive genetic data.</div>
+      <div class="blog-tag">PPML · Genomics</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header fade-up">
+    <span class="section-num">07.</span>
+    <h2 class="section-title">Contact</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="fade-up">
+      <p class="contact-text">
+        I'm always happy to discuss research, collaborations, or opportunities. Feel free to reach out.
+      </p>
+      <div class="contact-links">
+        <a href="mailto:zahra.safdari@bilkent.edu.tr" class="contact-link">
+          <div class="contact-link-icon">✉</div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">Email</div>
+            <div>zahra.safdari@bilkent.edu.tr</div>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/in/zahra-safdari-s81/" target="_blank" class="contact-link">
+          <div class="contact-link-icon">in</div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">LinkedIn</div>
+            <div>zahra-safdari-s81</div>
+          </div>
+        </a>
+        <a href="https://github.com/zahrasafdari" target="_blank" class="contact-link">
+          <div class="contact-link-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">GitHub</div>
+            <div>zahrasafdari</div>
+          </div>
+        </a>
+        <a href="https://arxiv.org/search/?query=Zahra+Safdari&searchtype=author" target="_blank" class="contact-link">
+          <div class="contact-link-icon" style="font-size:0.7rem;font-weight:700;">arXiv</div>
+          <div class="contact-link-info">
+            <div class="contact-link-label">arXiv</div>
+            <div>Zahra Safdari Fesaghandis</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="fade-up">
+      <div class="contact-form">
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input class="form-input" type="text" placeholder="Jane Smith">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="jane@university.edu">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" placeholder="Your message…"></textarea>
+        </div>
+        <button class="btn-contact" onclick="window.location.href='mailto:zahra.safdari@bilkent.edu.tr?subject=Contact from Website&body='+encodeURIComponent(document.querySelector('.form-textarea').value)">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-text">© 2026 <span class="footer-name">Zahra Safdari Fesaghandis</span> · Bilkent University, Ankara</div>
+  <div class="footer-text">Built with care · ASAP Lab</div>
+</footer>
+
+<script>
+  // Intersection Observer for fade-up animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80 * (entry.target.dataset.delay || 0));
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach((el, i) => {
+    el.dataset.delay = i % 4;
+    observer.observe(el);
+  });
+
+  // Active nav link highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current
+        ? 'var(--accent)' : '';
+    });
+  });
+</script>
+</body>
+</html>
