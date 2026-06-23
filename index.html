@@ -3,499 +3,401 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zahra Safdari Fesaghandis</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Zahra Safdari Fesaghandis — Bilkent University</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,300;1,8..60,400;1,8..60,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg: #0D1117;
-  --bg2: #111820;
-  --bg3: #161E28;
-  --surface: #1A2332;
-  --surface2: #1F2A3C;
-  --teal: #2DD4BF;
-  --teal-dim: #1A8A7A;
-  --teal-glow: rgba(45,212,191,0.15);
-  --amber: #F59E0B;
-  --amber-dim: #92610a;
-  --rose: #FB7185;
-  --text: #E2E8F0;
-  --text-soft: #94A3B8;
-  --text-muted: #4A5568;
-  --border: rgba(45,212,191,0.12);
-  --border2: rgba(255,255,255,0.06);
-  --serif: 'Playfair Display', Georgia, serif;
-  --sans: 'DM Sans', system-ui, sans-serif;
-  --mono: 'DM Mono', monospace;
+  --bg:        #FFFFFF;
+  --bg-alt:    #F7F8FA;
+  --bg-rule:   #EAECF0;
+  --navy:      #1B2A4A;
+  --navy-mid:  #2C3E6B;
+  --blue:      #2563EB;
+  --blue-lt:   #EFF6FF;
+  --teal:      #0D9488;
+  --teal-lt:   #F0FDFA;
+  --gold:      #B45309;
+  --gold-lt:   #FFFBEB;
+  --text:      #111827;
+  --text-body: #374151;
+  --text-soft: #6B7280;
+  --text-fine: #9CA3AF;
+  --border:    #E5E7EB;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --sans:  'Inter', system-ui, sans-serif;
 }
 
-html { scroll-behavior: smooth; }
-body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.65; -webkit-font-smoothing: antialiased; }
 
-/* Noise texture overlay */
-body::before {
-  content: '';
-  position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  opacity: 0.4;
-}
-
-/* ── NAV ── */
+/* ─── NAV ─── */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  background: rgba(13,17,23,0.85); backdrop-filter: blur(20px);
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.96); backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0 5%; height: 60px;
+  padding: 0 6%; height: 58px;
 }
-.nav-logo {
-  font-family: var(--mono); font-size: 0.8rem; font-weight: 500;
-  color: var(--teal); text-decoration: none; letter-spacing: 0.05em;
+.nav-brand {
+  font-family: var(--serif); font-size: 1rem; font-weight: 600;
+  color: var(--navy); text-decoration: none; letter-spacing: -0.01em;
 }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a {
-  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em;
-  text-transform: uppercase; text-decoration: none;
-  color: var(--text-soft); transition: color 0.2s;
-  position: relative;
+  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em;
+  text-decoration: none; color: var(--text-soft);
+  transition: color 0.18s;
 }
-.nav-links a::after {
-  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
-  height: 1px; background: var(--teal);
-  transform: scaleX(0); transition: transform 0.2s;
-}
-.nav-links a:hover, .nav-links a.active { color: var(--teal); }
-.nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+.nav-links a:hover, .nav-links a.active { color: var(--blue); }
 
-/* ── HERO ── */
+/* ─── HERO ─── */
 #home {
-  min-height: 100vh; padding-top: 60px;
-  display: grid; grid-template-columns: 1.1fr 0.9fr;
-  position: relative; overflow: hidden;
+  padding-top: 58px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
 }
-/* Animated grid background */
-#home::before {
-  content: '';
-  position: absolute; inset: 0; z-index: 0;
-  background-image:
-    linear-gradient(rgba(45,212,191,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(45,212,191,0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
+.hero-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 4.5rem 6% 4rem;
+  display: grid; grid-template-columns: 200px 1fr;
+  gap: 3.5rem; align-items: start;
 }
-#home::after {
-  content: '';
-  position: absolute; bottom: -200px; left: -100px;
-  width: 600px; height: 600px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(45,212,191,0.08) 0%, transparent 70%);
-  z-index: 0;
+.hero-photo-col { display: flex; flex-direction: column; align-items: center; gap: 1.2rem; }
+.hero-photo {
+  width: 180px; height: 180px; border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
+.hero-social { display: flex; flex-direction: column; gap: 0.5rem; width: 100%; }
+.social-link {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: 0.76rem; color: var(--text-soft);
+  text-decoration: none; padding: 0.35rem 0.6rem;
+  border-radius: 5px; transition: background 0.15s, color 0.15s;
+  border: 1px solid transparent;
+}
+.social-link:hover { background: var(--blue-lt); color: var(--blue); border-color: #BFDBFE; }
+.social-link svg, .social-link .s-icon { flex-shrink: 0; }
 
-.hero-left {
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 6% 5% 6% 8%; position: relative; z-index: 1;
-}
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 0.6rem;
-  font-family: var(--mono); font-size: 0.72rem; font-weight: 500;
-  color: var(--teal); letter-spacing: 0.1em; margin-bottom: 2rem;
-}
-.hero-eyebrow-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--teal); animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.8); }
-}
+.hero-content { padding-top: 0.3rem; }
 .hero-name {
-  font-family: var(--serif);
-  font-size: clamp(3rem, 5.5vw, 5rem);
-  font-weight: 900; line-height: 1.0;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  margin-bottom: 0.2rem;
+  font-family: var(--serif); font-size: 2.4rem; font-weight: 700;
+  color: var(--navy); line-height: 1.15; letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
 }
-.hero-name .line2 {
-  font-style: italic; font-weight: 400;
-  color: var(--teal); display: block;
+.hero-title {
+  font-size: 0.92rem; color: var(--text-body); font-weight: 400;
+  margin-bottom: 0.2rem; line-height: 1.55;
 }
-.hero-name .line3 { display: block; font-size: 0.55em; font-weight: 400; color: var(--text-soft); letter-spacing: 0.02em; margin-top: 0.3rem; }
-.hero-role {
-  font-size: 0.85rem; color: var(--amber);
-  font-weight: 500; letter-spacing: 0.08em;
-  text-transform: uppercase; margin-bottom: 1.5rem;
-  margin-top: 1.2rem;
+.hero-title strong { color: var(--navy); font-weight: 600; }
+.hero-affil {
+  font-size: 0.85rem; color: var(--text-soft); margin-bottom: 1.6rem;
 }
-.hero-bio {
-  font-size: 0.95rem; line-height: 1.85;
-  color: var(--text-soft); max-width: 500px; margin-bottom: 2rem;
-}
-.hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
-.tag {
-  font-family: var(--mono); font-size: 0.68rem; font-weight: 500;
-  padding: 0.3rem 0.75rem;
-  background: var(--surface); color: var(--teal);
-  border: 1px solid var(--border);
-  border-radius: 4px; letter-spacing: 0.06em;
-}
-.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
-.btn {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  font-family: var(--sans); font-size: 0.78rem; font-weight: 600;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  text-decoration: none; border-radius: 6px;
-  transition: all 0.22s; cursor: pointer; border: 1.5px solid transparent;
-}
-.btn-primary {
-  background: var(--teal); color: var(--bg);
-  border-color: var(--teal);
-}
-.btn-primary:hover { background: #22b5a3; box-shadow: 0 0 20px rgba(45,212,191,0.35); }
-.btn-outline {
-  background: transparent; color: var(--text);
-  border-color: var(--border2);
-}
-.btn-outline:hover { border-color: var(--teal); color: var(--teal); }
+.hero-affil a { color: var(--blue); text-decoration: none; }
+.hero-affil a:hover { text-decoration: underline; }
 
-.hero-right {
-  display: flex; flex-direction: column;
-  justify-content: center; align-items: center;
-  padding: 6% 8% 6% 4%; position: relative; z-index: 1;
-  border-left: 1px solid var(--border);
+.hero-bio {
+  font-family: var(--serif); font-size: 1.05rem; font-weight: 300;
+  line-height: 1.85; color: var(--text-body);
+  max-width: 680px; margin-bottom: 1.8rem;
+  border-left: 3px solid var(--blue); padding-left: 1.2rem;
 }
-/* glowing orb behind photo */
-.hero-right::before {
-  content: '';
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 320px; height: 320px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(45,212,191,0.12) 0%, transparent 70%);
-  pointer-events: none;
+.hero-tags { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.8rem; }
+.tag {
+  font-size: 0.73rem; font-weight: 500;
+  padding: 0.28rem 0.75rem;
+  background: var(--bg-alt); color: var(--navy-mid);
+  border: 1px solid var(--border);
+  border-radius: 100px;
 }
-.hero-photo-wrap {
-  position: relative; z-index: 2;
-  width: 240px; height: 240px;
+.hero-cta { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.8rem; font-weight: 600; letter-spacing: 0.03em;
+  text-decoration: none; border-radius: 5px;
+  border: 1.5px solid transparent; transition: all 0.18s; cursor: pointer;
+}
+.btn-primary { background: var(--blue); color: #fff; border-color: var(--blue); }
+.btn-primary:hover { background: #1D4ED8; }
+.btn-outline { background: #fff; color: var(--navy); border-color: var(--border); }
+.btn-outline:hover { border-color: var(--blue); color: var(--blue); }
+
+/* ─── PAGE LAYOUT ─── */
+.page-body { max-width: 1100px; margin: 0 auto; padding: 0 6%; }
+
+/* ─── SECTIONS ─── */
+section { padding: 4rem 0; border-bottom: 1px solid var(--border); }
+section:last-of-type { border-bottom: none; }
+.section-wrap { max-width: 1100px; margin: 0 auto; padding: 4rem 6%; border-bottom: 1px solid var(--border); }
+
+.sec-head {
+  display: flex; align-items: center; gap: 1rem;
   margin-bottom: 2.5rem;
 }
-.hero-photo-wrap::before {
-  content: '';
-  position: absolute; inset: -12px; border-radius: 50%;
-  border: 1px solid rgba(45,212,191,0.3);
-  animation: spin-ring 12s linear infinite;
+.sec-label {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--blue);
+  background: var(--blue-lt); border: 1px solid #BFDBFE;
+  padding: 0.18rem 0.6rem; border-radius: 3px;
+  white-space: nowrap;
 }
-.hero-photo-wrap::after {
-  content: '';
-  position: absolute; inset: -20px; border-radius: 50%;
-  border: 1px dashed rgba(45,212,191,0.15);
-  animation: spin-ring 20s linear infinite reverse;
+.sec-title {
+  font-family: var(--serif); font-size: 1.7rem; font-weight: 700;
+  color: var(--navy); letter-spacing: -0.015em;
 }
-@keyframes spin-ring {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-.hero-photo {
-  width: 240px; height: 240px; border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid rgba(45,212,191,0.4);
-  display: flex; align-items: center; justify-content: center;
-  background: var(--surface);
-  font-family: var(--serif); font-size: 5rem;
-  color: var(--teal); font-style: italic;
-}
-.hero-stats {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 0.8rem; width: 100%; max-width: 280px; z-index: 2;
-}
-.stat-card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 8px; padding: 1rem 1.2rem; text-align: center;
-  transition: border-color 0.2s;
-}
-.stat-card:hover { border-color: var(--teal); }
-.stat-num {
-  font-family: var(--serif); font-size: 1.8rem; font-weight: 700;
-  color: var(--teal); line-height: 1; margin-bottom: 0.3rem;
-}
-.stat-label {
-  font-family: var(--mono); font-size: 0.6rem; font-weight: 500;
-  letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted);
-}
+.sec-rule { flex: 1; height: 1px; background: var(--border); }
 
-/* ── SECTIONS ── */
-section { padding: 6rem 8%; position: relative; }
-section:nth-child(even) { background: var(--bg2); }
-
-.section-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 3.5rem; }
-.section-num {
-  font-family: var(--mono); font-size: 0.72rem; font-weight: 500;
-  color: var(--amber); letter-spacing: 0.1em;
-  background: rgba(245,158,11,0.1);
-  border: 1px solid rgba(245,158,11,0.25);
-  padding: 0.2rem 0.6rem; border-radius: 4px;
-}
-.section-title {
-  font-family: var(--serif);
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
-  font-weight: 700; color: var(--text); letter-spacing: -0.01em;
-}
-.section-line { flex: 1; height: 1px; background: var(--border); }
-
-/* ── ABOUT ── */
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+/* ─── ABOUT ─── */
+.about-cols { display: grid; grid-template-columns: 1fr 360px; gap: 4rem; align-items: start; }
 .about-lead {
-  font-family: var(--serif); font-size: 1.25rem; font-weight: 400;
-  line-height: 1.75; color: var(--text); margin-bottom: 1.4rem;
+  font-family: var(--serif); font-size: 1.05rem; font-weight: 400;
+  line-height: 1.85; color: var(--text-body); margin-bottom: 1.2rem;
 }
-.about-body { font-size: 0.91rem; line-height: 1.9; color: var(--text-soft); margin-bottom: 1.2rem; }
+.about-p { font-size: 0.9rem; line-height: 1.85; color: var(--text-body); margin-bottom: 1rem; }
 
-.interest-box {
-  background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
-  border: 1px solid var(--border);
-  border-radius: 12px; padding: 1.8rem; margin-bottom: 1.2rem;
-  position: relative; overflow: hidden;
+.sidebar-card {
+  background: var(--bg-alt); border: 1px solid var(--border);
+  border-radius: 8px; padding: 1.4rem 1.5rem; margin-bottom: 1.2rem;
 }
-.interest-box::before {
-  content: ''; position: absolute; top: 0; left: 0;
-  width: 3px; height: 100%; background: var(--teal);
-  border-radius: 3px 0 0 3px;
+.sidebar-card-title {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--text-soft);
+  margin-bottom: 0.9rem; padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border);
 }
-.interest-box h3 {
-  font-family: var(--mono); font-size: 0.7rem; font-weight: 500;
-  color: var(--teal); letter-spacing: 0.12em; text-transform: uppercase;
-  margin-bottom: 1rem;
+.sidebar-item {
+  font-size: 0.84rem; color: var(--text-body);
+  margin-bottom: 0.55rem; line-height: 1.5;
+  display: flex; gap: 0.5rem;
 }
-.interest-box ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-.interest-box li { font-size: 0.87rem; color: var(--text-soft); display: flex; gap: 0.75rem; align-items: flex-start; }
-.interest-box li span { color: var(--teal); flex-shrink: 0; font-family: var(--mono); }
+.sidebar-item strong { color: var(--navy); font-weight: 600; }
+.sidebar-item-icon { flex-shrink: 0; color: var(--text-soft); margin-top: 0.05rem; }
 
-.info-card {
-  background: var(--surface); border: 1px solid var(--border2);
-  border-radius: 12px; padding: 1.5rem; margin-bottom: 1.2rem;
-  transition: border-color 0.2s;
+.interests-list { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+.interests-list li {
+  font-size: 0.84rem; color: var(--text-body);
+  display: flex; align-items: flex-start; gap: 0.6rem;
 }
-.info-card:hover { border-color: var(--border); }
-.info-card h3 {
-  font-family: var(--mono); font-size: 0.7rem; font-weight: 500;
-  color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase;
-  margin-bottom: 0.9rem;
+.interests-list li::before {
+  content: ''; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--blue); flex-shrink: 0; margin-top: 0.48rem;
 }
-.info-item { font-size: 0.84rem; color: var(--text-soft); margin-bottom: 0.5rem; line-height: 1.5; }
-.info-item strong { color: var(--text); font-weight: 500; }
-.award-item {
-  display: flex; gap: 0.75rem; font-size: 0.83rem;
-  color: var(--text-soft); margin-bottom: 0.6rem; line-height: 1.55;
-}
-.award-star { color: var(--amber); flex-shrink: 0; }
 
-/* ── PUBLICATIONS ── */
+.award-row {
+  display: flex; gap: 0.6rem; align-items: flex-start;
+  font-size: 0.83rem; color: var(--text-body);
+  margin-bottom: 0.55rem; line-height: 1.5;
+}
+.award-row::before {
+  content: '★'; color: var(--gold); flex-shrink: 0;
+  font-size: 0.7rem; margin-top: 0.15rem;
+}
+
+/* ─── PUBLICATIONS ─── */
 .pub-list { display: flex; flex-direction: column; gap: 1.5rem; }
-.pub-card {
-  background: var(--surface);
-  border: 1px solid var(--border2);
-  border-radius: 12px; padding: 2rem 2.2rem;
-  display: grid; grid-template-columns: 60px 1fr; gap: 1.8rem;
-  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
-  position: relative; overflow: hidden;
+.pub-item {
+  display: grid; grid-template-columns: 48px 1fr;
+  gap: 1.5rem; padding: 1.5rem 1.6rem;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color 0.18s, box-shadow 0.18s;
 }
-.pub-card::before {
-  content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 3px;
-  background: linear-gradient(to bottom, var(--teal), var(--teal-dim));
-  opacity: 0; transition: opacity 0.25s;
-}
-.pub-card:hover { border-color: var(--border); box-shadow: 0 8px 40px rgba(0,0,0,0.4); transform: translateY(-2px); }
-.pub-card:hover::before { opacity: 1; }
-.pub-year {
-  font-family: var(--serif); font-size: 2rem; font-weight: 700;
-  font-style: italic; color: var(--teal); line-height: 1; padding-top: 0.2rem;
-  opacity: 0.7;
+.pub-item:hover { border-color: #93C5FD; box-shadow: 0 2px 12px rgba(37,99,235,0.07); }
+.pub-num {
+  font-family: var(--serif); font-size: 1.5rem; font-weight: 300;
+  font-style: italic; color: var(--text-fine);
+  line-height: 1; padding-top: 0.3rem;
 }
 .pub-badge {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  font-family: var(--mono); font-size: 0.65rem; font-weight: 500;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 0.22rem 0.65rem; border-radius: 100px;
-  margin-bottom: 0.7rem;
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 0.2rem 0.6rem;
+  border-radius: 3px; margin-bottom: 0.6rem;
 }
-.pub-badge.accepted { background: rgba(45,212,191,0.12); color: var(--teal); border: 1px solid rgba(45,212,191,0.3); }
-.pub-badge.preprint { background: rgba(245,158,11,0.1); color: var(--amber); border: 1px solid rgba(245,158,11,0.25); }
-.pub-badge.prep { background: rgba(148,163,184,0.08); color: var(--text-muted); border: 1px solid rgba(148,163,184,0.15); }
+.pub-badge.accepted { background: #DCFCE7; color: #15803D; border: 1px solid #BBF7D0; }
+.pub-badge.preprint { background: var(--gold-lt); color: var(--gold); border: 1px solid #FDE68A; }
 .pub-badge-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
 .pub-title {
-  font-family: var(--serif); font-size: 1.15rem; font-weight: 600;
-  color: var(--text); line-height: 1.4; margin-bottom: 0.5rem;
+  font-family: var(--serif); font-size: 1.08rem; font-weight: 600;
+  color: var(--navy); line-height: 1.4; margin-bottom: 0.4rem;
 }
-.pub-authors { font-size: 0.83rem; color: var(--text-muted); margin-bottom: 0.5rem; }
-.pub-authors strong { color: var(--text-soft); font-weight: 500; }
-.pub-venue { font-size: 0.8rem; font-style: italic; color: var(--text-muted); margin-bottom: 1rem; }
+.pub-authors { font-size: 0.83rem; color: var(--text-soft); margin-bottom: 0.3rem; }
+.pub-authors strong { color: var(--text-body); font-weight: 600; font-style: normal; }
+.pub-venue {
+  font-size: 0.82rem; font-style: italic;
+  color: var(--text-soft); margin-bottom: 0.9rem;
+}
 .pub-abstract {
-  font-size: 0.84rem; color: var(--text-soft); line-height: 1.75;
-  margin-bottom: 1rem;
-  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  font-size: 0.84rem; color: var(--text-body); line-height: 1.75;
+  margin-bottom: 0.9rem;
+  display: -webkit-box; -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical; overflow: hidden;
 }
-.pub-links { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.pub-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
 .pub-link {
-  font-family: var(--mono); font-size: 0.68rem; font-weight: 500;
-  letter-spacing: 0.06em; text-transform: uppercase;
-  text-decoration: none; padding: 0.3rem 0.8rem; border-radius: 4px;
-  transition: all 0.2s;
+  font-size: 0.73rem; font-weight: 600; letter-spacing: 0.04em;
+  text-decoration: none; padding: 0.3rem 0.75rem;
+  border-radius: 4px; transition: all 0.16s;
 }
-.pub-link.teal { color: var(--teal); border: 1px solid rgba(45,212,191,0.3); }
-.pub-link.teal:hover { background: var(--teal); color: var(--bg); }
-.pub-link.gray { color: var(--text-muted); border: 1px solid rgba(148,163,184,0.15); }
-.pub-link.gray:hover { color: var(--text-soft); border-color: rgba(148,163,184,0.3); }
+.pub-link.blue { color: var(--blue); border: 1px solid #BFDBFE; background: var(--blue-lt); }
+.pub-link.blue:hover { background: var(--blue); color: #fff; }
+.pub-link.gray { color: var(--text-soft); border: 1px solid var(--border); background: var(--bg-alt); }
+.pub-link.gray:hover { color: var(--text-body); border-color: #9CA3AF; }
 
-/* ── RESEARCH ── */
-.research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem; }
+/* ─── RESEARCH ─── */
+.research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
 .research-card {
-  background: var(--surface); border: 1px solid var(--border2);
-  border-radius: 12px; padding: 1.8rem;
-  transition: all 0.25s; position: relative; overflow: hidden;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 8px; padding: 1.5rem;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  border-top: 3px solid var(--border);
 }
-.research-card::after {
-  content: ''; position: absolute;
-  bottom: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, var(--teal), var(--amber));
-  transform: scaleX(0); transform-origin: left;
-  transition: transform 0.3s;
-}
-.research-card:hover { border-color: var(--border); box-shadow: 0 4px 24px rgba(0,0,0,0.3); transform: translateY(-3px); }
-.research-card:hover::after { transform: scaleX(1); }
-.research-icon {
-  font-size: 1.5rem; margin-bottom: 1.1rem; display: block;
-  filter: grayscale(0.2);
-}
+.research-card:hover { border-top-color: var(--blue); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.research-icon { font-size: 1.3rem; margin-bottom: 0.8rem; display: block; }
 .research-title {
-  font-family: var(--serif); font-size: 1.05rem; font-weight: 600;
-  color: var(--text); margin-bottom: 0.7rem; line-height: 1.35;
+  font-family: var(--serif); font-size: 1rem; font-weight: 600;
+  color: var(--navy); margin-bottom: 0.6rem; line-height: 1.35;
 }
-.research-desc { font-size: 0.84rem; line-height: 1.78; color: var(--text-soft); }
+.research-desc { font-size: 0.83rem; line-height: 1.75; color: var(--text-soft); }
 
-/* ── CV ── */
-#cv .fade-up > p { font-family: var(--serif); }
+/* ─── CV ─── */
+.cv-section { margin-bottom: 2.2rem; }
+.cv-section-label {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--text-soft);
+  margin-bottom: 0.8rem; padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.cv-row {
+  display: grid; grid-template-columns: 160px 1fr;
+  gap: 1.5rem; padding: 0.8rem 0;
+  border-bottom: 1px solid #F3F4F6;
+}
+.cv-row:last-child { border-bottom: none; }
+.cv-period { font-size: 0.78rem; color: var(--text-soft); padding-top: 0.12rem; font-weight: 500; }
+.cv-role { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 0.15rem; }
+.cv-where { font-size: 0.83rem; color: var(--blue); margin-bottom: 0.2rem; }
+.cv-detail { font-size: 0.81rem; color: var(--text-soft); line-height: 1.6; }
 
-/* ── TEACHING ── */
-.teaching-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
-.teaching-card {
-  background: var(--surface); border: 1px solid var(--border2);
-  border-radius: 12px; padding: 1.6rem;
-  display: flex; flex-direction: column; gap: 0.5rem;
-  transition: border-color 0.2s;
+/* ─── TEACHING ─── */
+.teaching-table { width: 100%; border-collapse: collapse; }
+.teaching-table thead th {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--text-soft);
+  padding: 0.7rem 1rem; text-align: left;
+  background: var(--bg-alt); border-bottom: 1px solid var(--border);
 }
-.teaching-card:hover { border-color: var(--border); }
-.teaching-role {
-  font-family: var(--mono); font-size: 0.65rem; font-weight: 500;
-  letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber);
+.teaching-table thead th:first-child { border-radius: 6px 0 0 0; }
+.teaching-table thead th:last-child { border-radius: 0 6px 0 0; }
+.teaching-table tbody tr { border-bottom: 1px solid #F3F4F6; transition: background 0.15s; }
+.teaching-table tbody tr:last-child { border-bottom: none; }
+.teaching-table tbody tr:hover { background: var(--bg-alt); }
+.teaching-table td { padding: 0.85rem 1rem; font-size: 0.86rem; vertical-align: top; }
+.teaching-table td:first-child { font-weight: 500; color: var(--navy); width: 120px; white-space: nowrap; }
+.teaching-table td:nth-child(2) { color: var(--text-body); }
+.teaching-table td:last-child { color: var(--text-soft); white-space: nowrap; width: 180px; }
+.teaching-inst {
+  font-size: 0.72rem; color: var(--text-fine);
+  margin-top: 0.15rem;
 }
-.teaching-course {
-  font-family: var(--serif); font-size: 1.08rem; font-weight: 600; color: var(--text);
+.ta-badge {
+  display: inline-block; font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.12rem 0.45rem; border-radius: 3px; margin-right: 0.4rem;
 }
-.teaching-meta { font-size: 0.8rem; color: var(--text-muted); }
-.teaching-note { font-size: 0.8rem; color: var(--text-soft); line-height: 1.6; margin-top: 0.2rem; }
+.ta-badge.ta { background: var(--blue-lt); color: var(--blue); border: 1px solid #BFDBFE; }
+.ta-badge.hta { background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; }
+.ta-badge.tutor { background: var(--teal-lt); color: var(--teal); border: 1px solid #99F6E4; }
 
-/* ── CONTACT ── */
-#contact { background: var(--bg3); }
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-.contact-intro {
-  font-family: var(--serif); font-size: 1.4rem; font-weight: 400;
-  line-height: 1.65; color: var(--text); margin-bottom: 2.5rem;
+/* ─── CONTACT ─── */
+.contact-cols { display: grid; grid-template-columns: 1fr 1.1fr; gap: 4rem; align-items: start; }
+.contact-lead {
+  font-family: var(--serif); font-size: 1.1rem; font-weight: 400;
+  line-height: 1.75; color: var(--text-body); margin-bottom: 2rem;
 }
-.contact-intro em { font-style: italic; color: var(--teal); }
-.contact-links { display: flex; flex-direction: column; }
-.contact-link {
-  display: flex; align-items: center; gap: 1rem;
-  text-decoration: none; color: var(--text-soft);
-  font-size: 0.87rem; padding: 1rem 0;
-  border-bottom: 1px solid var(--border2);
-  transition: color 0.2s;
+.contact-item {
+  display: flex; align-items: center; gap: 0.9rem;
+  padding: 0.85rem 0; border-bottom: 1px solid var(--border);
+  text-decoration: none; color: var(--text-body);
+  font-size: 0.87rem; transition: color 0.16s;
 }
-.contact-link:last-child { border-bottom: none; }
-.contact-link:hover { color: var(--text); }
-.contact-link:hover .c-icon { background: var(--teal); color: var(--bg); }
-.c-icon {
-  width: 38px; height: 38px; border-radius: 8px;
-  background: var(--surface); border: 1px solid var(--border2);
+.contact-item:last-child { border-bottom: none; }
+.contact-item:hover { color: var(--blue); }
+.c-ico {
+  width: 34px; height: 34px; border-radius: 6px;
+  background: var(--bg-alt); border: 1px solid var(--border);
   display: flex; align-items: center; justify-content: center;
-  font-size: 0.9rem; flex-shrink: 0; transition: all 0.2s;
-  font-family: var(--mono); font-weight: 600; font-size: 0.62rem;
-  letter-spacing: -0.03em; color: var(--text-soft);
+  font-size: 0.85rem; flex-shrink: 0; color: var(--text-soft);
+  transition: all 0.16s;
 }
-.c-label {
-  font-family: var(--mono); font-size: 0.6rem; font-weight: 500;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--text-muted); margin-bottom: 0.1rem;
-}
+.contact-item:hover .c-ico { background: var(--blue-lt); border-color: #BFDBFE; color: var(--blue); }
+.c-lbl { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-fine); margin-bottom: 0.08rem; }
+.c-val { font-size: 0.86rem; }
 
-.contact-form { display: flex; flex-direction: column; gap: 1.1rem; }
-.form-label {
-  display: block; font-family: var(--mono); font-size: 0.65rem;
-  font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--text-muted); margin-bottom: 0.4rem;
-}
+.form-wrap { background: var(--bg-alt); border: 1px solid var(--border); border-radius: 8px; padding: 1.8rem; }
+.form-wrap h3 { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 1.2rem; }
+.form-group { margin-bottom: 1rem; }
+.form-label { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); margin-bottom: 0.35rem; }
 .form-input, .form-textarea {
-  width: 100%; background: var(--surface);
-  border: 1px solid var(--border2); border-radius: 8px;
-  padding: 0.85rem 1rem; font-family: var(--sans);
-  font-size: 0.88rem; color: var(--text); outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 5px;
+  padding: 0.7rem 0.9rem; font-family: var(--sans);
+  font-size: 0.87rem; color: var(--text); outline: none;
+  transition: border-color 0.16s, box-shadow 0.16s;
 }
-.form-input::placeholder, .form-textarea::placeholder { color: var(--text-muted); }
 .form-input:focus, .form-textarea:focus {
-  border-color: var(--teal);
-  box-shadow: 0 0 0 3px rgba(45,212,191,0.1);
+  border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
 }
-.form-textarea { height: 130px; resize: vertical; }
+.form-textarea { height: 120px; resize: vertical; }
 .btn-send {
-  background: linear-gradient(135deg, var(--teal) 0%, #22d3ee 100%);
-  color: var(--bg); border: none; border-radius: 8px;
-  padding: 0.9rem 1.5rem; font-family: var(--sans);
-  font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em;
-  text-transform: uppercase; cursor: pointer;
-  transition: all 0.2s; margin-top: 0.3rem;
+  width: 100%; background: var(--blue); color: #fff;
+  border: none; border-radius: 5px; padding: 0.75rem;
+  font-family: var(--sans); font-size: 0.82rem; font-weight: 600;
+  letter-spacing: 0.04em; cursor: pointer;
+  transition: background 0.16s; margin-top: 0.3rem;
 }
-.btn-send:hover { box-shadow: 0 0 24px rgba(45,212,191,0.4); transform: translateY(-1px); }
+.btn-send:hover { background: #1D4ED8; }
 
-/* ── FOOTER ── */
+/* ─── FOOTER ─── */
 footer {
-  background: var(--bg);
-  border-top: 1px solid var(--border2);
-  padding: 1.8rem 8%;
+  background: var(--navy); color: rgba(255,255,255,0.55);
+  padding: 2rem 6%;
   display: flex; align-items: center; justify-content: space-between;
+  font-size: 0.78rem;
 }
-.footer-l { font-family: var(--mono); font-size: 0.72rem; color: var(--text-muted); }
-.footer-l span { color: var(--teal); }
-.footer-r { font-size: 0.75rem; color: var(--text-muted); }
+footer span { color: rgba(255,255,255,0.8); font-weight: 500; }
 
-/* ── DIVIDER ── */
-.teal-divider {
-  width: 48px; height: 3px; border-radius: 2px;
-  background: linear-gradient(90deg, var(--teal), var(--amber));
-  margin-bottom: 2rem;
-}
-
-/* ── ANIMATIONS ── */
-.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+/* ─── ANIMATIONS ─── */
+.fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 960px) {
-  #home { grid-template-columns: 1fr; }
-  .hero-right { display: none; }
-  .hero-left { padding: 7% 6%; }
-  section { padding: 4.5rem 6%; }
-  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .pub-card { grid-template-columns: 1fr; gap: 0.5rem; }
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-photo-col { flex-direction: row; align-items: center; }
+  .hero-social { flex-direction: row; flex-wrap: wrap; width: auto; }
+  .about-cols { grid-template-columns: 1fr; }
+  .contact-cols { grid-template-columns: 1fr; }
+  .cv-row { grid-template-columns: 1fr; gap: 0.2rem; }
+  .pub-item { grid-template-columns: 1fr; gap: 0.3rem; }
+  .teaching-table td:last-child { white-space: normal; }
 }
-@media (max-width: 640px) { .nav-links { display: none; } }
+@media (max-width: 640px) {
+  .nav-links { display: none; }
+  .hero-inner { padding: 3rem 5% 2.5rem; }
+}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="#home" class="nav-logo">zahra.safdari</a>
+  <a href="#home" class="nav-brand">Zahra Safdari Fesaghandis</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#publications">Publications</a></li>
@@ -507,257 +409,346 @@ footer {
 </nav>
 
 <!-- HERO -->
-<section id="home">
-  <div class="hero-left">
-    <div class="hero-eyebrow">
-      <span class="hero-eyebrow-dot"></span>
-      M.Sc. Computer Engineering · Bilkent University · Ankara
+<div id="home">
+  <div class="hero-inner">
+    <!-- Photo + Social -->
+    <div class="hero-photo-col">
+      <img class="hero-photo" src="Screenshot 2026-05-14 at 15.04.06.png" alt="Zahra Safdari Fesaghandis">
+      <div class="hero-social">
+        <a href="mailto:zahra.safdari@bilkent.edu.tr" class="social-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+          Email
+        </a>
+        <a href="https://scholar.google.com/citations?user=fRfD82IAAAAJ&hl=en" target="_blank" class="social-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 10a8 8 0 0 1 7.162 3.44L24 9.5z"/></svg>
+          Google Scholar
+        </a>
+        <a href="https://arxiv.org/search/?query=Zahra+Safdari&searchtype=author" target="_blank" class="social-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3.17 6.6L0 5.4l8.07-3.37L12 .7l3.93 1.33L24 5.4l-3.17 1.2L12 3.38 3.17 6.6zM12 7.7L.43 3.8 0 5.4l12 4.5 12-4.5-.43-1.6L12 7.7zm0 4.3L.43 8.1 0 9.7l12 4.5 12-4.5-.43-1.6L12 12zm0 4.3L.43 12.4 0 14l12 4.5 12-4.5-.43-1.6L12 16.3zm0 4.3L.43 16.7 0 18.3l12 4.5 12-4.5-.43-1.6L12 20.6z"/></svg>
+          arXiv
+        </a>
+        <a href="https://github.com/zahrasafdari" target="_blank" class="social-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/zahra-safdari-s81/" target="_blank" class="social-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+      </div>
     </div>
-    <h1 class="hero-name">
-      Zahra
-      <em class="line2">Safdari</em>
-      <span class="line3">Fesaghandis</span>
-    </h1>
-    <div class="hero-role">Research &amp; Teaching Assistant · ASAP Lab</div>
-    <p class="hero-bio">
-      Master's student at Bilkent University working at the intersection of privacy-preserving machine learning, Genomic Beacon Defense, large language models, and social computing. 
-    </p>
-    <div class="hero-tags">
-      <span class="tag">PPML</span>
-      <span class="tag">Genomic Privacy</span>
-      <span class="tag">NLP</span>
-      <span class="tag">Social Computing</span>
-      <span class="tag">LLMs</span>
-      <span class="tag">Trustworthy AI</span>
-    </div>
-    <div class="hero-cta">
-      <a href="#publications" class="btn btn-primary">View Publications</a>
-      <a href="#contact" class="btn btn-outline">Get in Touch</a>
+
+    <!-- Main Content -->
+    <div class="hero-content">
+      <h1 class="hero-name">Zahra Safdari Fesaghandis</h1>
+      <p class="hero-title">
+        <strong>Research &amp; Teaching Assistant</strong> · ASAP Lab, Department of Computer Engineering
+      </p>
+      <p class="hero-affil">
+        <a href="https://cs.bilkent.edu.tr" target="_blank">Bilkent University</a> · Ankara, Turkey &nbsp;·&nbsp;
+        Advisor: <a href="#" target="_blank">Dr. Sinem Sav</a>
+      </p>
+      <p class="hero-bio">
+        I am a Master's student in Computer Engineering at Bilkent University, working at the intersection of privacy-preserving machine learning, genomic data privacy, natural language processing, and social computing. My research aims to make AI systems safer, more trustworthy, and more inclusive — particularly for low-resource languages and sensitive data domains.
+      </p>
+      <div class="hero-tags">
+        <span class="tag">Privacy-Preserving ML</span>
+        <span class="tag">Genomic Beacon Defense</span>
+        <span class="tag">NLP &amp; LLMs</span>
+        <span class="tag">Social Computing</span>
+        <span class="tag">Trustworthy AI</span>
+        <span class="tag">Multilingual NLP</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#publications" class="btn btn-primary">Publications</a>
+        <a href="YOUR_CV_LINK_HERE" target="_blank" class="btn btn-outline">Download CV</a>
+        <a href="#contact" class="btn btn-outline">Contact</a>
+      </div>
     </div>
   </div>
-  <div class="hero-right">
-    <div class="hero-photo-wrap">
-      <img class="hero-photo" src="Screenshot 2026-05-14 at 15.04.06.png" alt="Zahra Safdari">
-    </div>
-    
-  </div>
-</section>
+</div>
 
 <!-- ABOUT -->
-<section id="about">
-  <div class="section-header fade-up">
-    <span class="section-num">01 / about</span>
-    <h2 class="section-title">About Me</h2>
-    <div class="section-line"></div>
+<div class="section-wrap" id="about">
+  <div class="sec-head fade-up">
+    <span class="sec-label">01</span>
+    <h2 class="sec-title">About</h2>
+    <div class="sec-rule"></div>
   </div>
-  <div class="about-grid">
+  <div class="about-cols">
     <div class="fade-up">
-      <div class="teal-divider"></div>
       <p class="about-lead">
-        I am a Master's student in Computer Engineering at <strong>Bilkent University</strong>, Ankara, Turkey.
+        I am a Master's student in Computer Engineering at <strong>Bilkent University</strong> (Sep 2025–Sep 2027), working as a Research &amp; Teaching Assistant in the <strong>ASAP Lab</strong> under the supervision of <strong>Dr. Sinem Sav</strong>.
       </p>
-      <p class="about-body">
-        I work as a Research &amp; Teaching Assistant at the <strong style="color:var(--text)">ASAP Lab</strong> under <strong style="color:var(--text)">Dr. Sinem Sav</strong>, focusing on privacy-preserving machine learning and genomic beacon defense. Prior to Bilkent, I was a Research Assistant at <strong style="color:var(--text)">Missouri University of Science and Technology</strong> under <strong style="color:var(--text)">Dr. Suman Kalyan Maity</strong>, co-authoring two papers on multilingual hate speech and counter-narrative generation.
+      <p class="about-p">
+        My current research at ASAP Lab focuses on privacy-preserving machine learning and genomic beacon defense — designing systems that protect individuals' sensitive information without sacrificing scientific utility. Prior to joining Bilkent, I worked remotely as a Research Assistant at <strong>Missouri University of Science and Technology</strong> under <strong>Dr. Suman Kalyan Maity</strong> (Dec 2024–Sep 2025), where I co-authored two publications on multilingual hate speech detection and Persian counter-narrative generation.
       </p>
-      <p class="about-body">
-        I completed my B.Sc. in Computer Science at the <strong style="color:var(--text)">University of Tabriz</strong>. My undergraduate work spanned Social Computing, NLP, and Ethical AI, with an internship at the <strong style="color:var(--text)">IPM Institute</strong> on multilingual sentiment analysis.
+      <p class="about-p">
+        I received my B.Sc. in Computer Science from the <strong>University of Tabriz</strong> (Sep 2020–Sep 2024), graduating third in my class with a GPA of 3.86/4 and receiving the Outstanding Thesis Award (20/20). My undergraduate research spanned Social Computing, NLP, and Ethical AI under Prof. Habib Izadkhah. I also interned at the <strong>IPM Institute for Research in Fundamental Sciences</strong>, where I led a team in multilingual sentiment analysis research.
       </p>
- 
+      <p class="about-p">
+        Outside research, I co-host <strong>DeepReads</strong>, a podcast dedicated to making cutting-edge AI research accessible to a broader audience.
+      </p>
     </div>
     <div class="fade-up">
-      <div class="interest-box">
-        <h3>// Research Interests</h3>
-        <ul>
-          <li><span>→</span> Privacy-Preserving Machine Learning</li>
-          <li><span>→</span> Genomic Beacon Defense &amp; Membership Inference</li>
-          <li><span>→</span> Natural Language Processing &amp; LLMs</li>
-          <li><span>→</span> Social Computing &amp; Hate Speech Detection</li>
-          <li><span>→</span> Low-Resource &amp; Multilingual NLP</li>
-          <li><span>→</span> Trustworthy AI &amp; Fairness</li>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Research Interests</div>
+        <ul class="interests-list">
+          <li>Privacy-Preserving Machine Learning</li>
+          <li>Genomic Beacon Defense &amp; Membership Inference</li>
+          <li>Natural Language Processing &amp; LLMs</li>
+          <li>Social Computing &amp; Hate Speech Detection</li>
+          <li>Low-Resource &amp; Multilingual NLP</li>
+          <li>Trustworthy AI &amp; Algorithmic Fairness</li>
         </ul>
       </div>
-      <div class="info-card">
-        <h3>// Affiliations</h3>
-        <div class="info-item">🎓 <strong>Bilkent University</strong> — M.Sc. Computer Engineering (2025–Present)</div>
-        <div class="info-item">🔬 <strong>ASAP Lab</strong> — Research &amp; Teaching Assistant (PI: Dr. Sinem Sav)</div>
-        <div class="info-item">🔬 <strong>Missouri S&amp;T</strong> — Research Assistant (PI: Dr. Maity, Dec 2024–Sep 2025)</div>
-        <div class="info-item">📚 <strong>University of Tabriz</strong> — B.Sc. Computer Science (GPA 3.86/4)</div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Affiliations</div>
+        <div class="sidebar-item"><span class="sidebar-item-icon">🎓</span><span><strong>Bilkent University</strong> — M.Sc. Computer Engineering, 2025–Present</span></div>
+        <div class="sidebar-item"><span class="sidebar-item-icon">🔬</span><span><strong>ASAP Lab</strong> — RA &amp; TA (PI: Dr. Sinem Sav)</span></div>
+        <div class="sidebar-item"><span class="sidebar-item-icon">🔬</span><span><strong>Missouri S&amp;T</strong> — RA (PI: Dr. Maity, 2024–2025)</span></div>
+        <div class="sidebar-item"><span class="sidebar-item-icon">📚</span><span><strong>Univ. of Tabriz</strong> — B.Sc. CS, GPA 3.86, Rank 3rd</span></div>
       </div>
-      <div class="info-card">
-        <h3>// Honors &amp; Awards</h3>
-        <div class="award-item"><span class="award-star">★</span> Distinguished Talent — Full M.Sc. scholarship, no entrance exam, 2024</div>
-        <div class="award-item"><span class="award-star">★</span> Sole Female Member elected to CS Scientific Society, 2023</div>
-        <div class="award-item"><span class="award-star">★</span> 1st Place in IPM AI School Entrance Exam (140 students), 2023</div>
-        <div class="award-item"><span class="award-star">★</span> Top 0.5% in Iran's National University Exam (155,000+ participants), 2020</div>
+      <div class="sidebar-card">
+        <div class="sidebar-card-title">Honors &amp; Awards</div>
+        <div class="award-row">Outstanding Bachelor's Thesis Award (20/20), Univ. of Tabriz, 2024</div>
+        <div class="award-row">Distinguished Talent — Full M.Sc. scholarship, no entrance exam, 2024</div>
+        <div class="award-row">Sole Female Member, CS Dept. Scientific Society, 2023</div>
+        <div class="award-row">1st Place, IPM AI School Entrance Exam (140 students), 2023</div>
+        <div class="award-row">Top 0.5%, Iran National University Entrance Exam (155,000+), 2020</div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- PUBLICATIONS -->
-<section id="publications">
-  <div class="section-header fade-up">
-    <span class="section-num">02 / research</span>
-    <h2 class="section-title">Publications</h2>
-    <div class="section-line"></div>
+<div class="section-wrap" id="publications">
+  <div class="sec-head fade-up">
+    <span class="sec-label">02</span>
+    <h2 class="sec-title">Publications</h2>
+    <div class="sec-rule"></div>
   </div>
   <div class="pub-list">
 
-    <div class="pub-card fade-up">
-      <div class="pub-year">'26</div>
+    <div class="pub-item fade-up">
+      <div class="pub-num">1</div>
       <div>
         <div class="pub-badge accepted"><span class="pub-badge-dot"></span> Accepted · AAAI ICWSM 2026</div>
         <div class="pub-title">ParsCN: A Persian Dataset for Counter-Narrative Generation to Combat Online Hate Speech</div>
         <div class="pub-authors"><strong>Zahra Safdari Fesaghandis</strong>, Suman Kalyan Maity</div>
-        <div class="pub-venue">arXiv:2603.27011 · Bilkent University &amp; Missouri University of Science and Technology</div>
+        <div class="pub-venue">Bilkent University &amp; Missouri University of Science and Technology · arXiv:2603.27011</div>
         <div class="pub-abstract">We introduce ParsCN, the first and most comprehensive Persian counter-narrative dataset — 1,100 hate speech and counter-narrative pairs with fine-grained annotations across six target groups and six countering strategies. A novel multi-stage framework integrates culturally-informed human annotation with few-shot LLM-augmented generation guided by semantic retrieval, enabling high-quality diverse counter-narratives while significantly reducing annotation costs.</div>
         <div class="pub-links">
-          <a href="https://arxiv.org/abs/2603.27011" target="_blank" class="pub-link teal">arXiv</a>
-          <a href="https://github.com/zahrasafdari/ParsCN-Dataset" target="_blank" class="pub-link teal">Dataset</a>
+          <a href="https://arxiv.org/abs/2603.27011" target="_blank" class="pub-link blue">[arXiv]</a>
+          <a href="https://github.com/zahrasafdari/ParsCN-Dataset" target="_blank" class="pub-link blue">[Dataset]</a>
+          <a href="https://scholar.google.com/citations?user=fRfD82IAAAAJ&hl=en" target="_blank" class="pub-link gray">[Google Scholar]</a>
         </div>
       </div>
     </div>
 
-    <div class="pub-card fade-up">
-      <div class="pub-year">'26</div>
+    <div class="pub-item fade-up">
+      <div class="pub-num">2</div>
       <div>
-        <div class="pub-badge accepted"><span class="pub-badge-dot"></span> Accepted · ACM Computing 2026</div>
+        <div class="pub-badge accepted"><span class="pub-badge-dot"></span> Accepted · ACM Computing Surveys 2026</div>
         <div class="pub-title">Multilingual Hate Speech Detection and Counterspeech Generation: A Comprehensive Survey and Practical Guide</div>
         <div class="pub-authors"><strong>Zahra Safdari Fesaghandis</strong>, Suman Kalyan Maity</div>
-        <div class="pub-venue">arXiv:2603.19279 · Bilkent University &amp; Missouri University of Science and Technology</div>
-        <div class="pub-abstract">A comprehensive survey and practical guide to multilingual hate speech detection and counterspeech generation. We analyze why monolingual systems fail in non-English and code-mixed contexts and present a structured three-phase framework — task design, data curation, and evaluation — to advance inclusive online safety.</div>
+        <div class="pub-venue">Bilkent University &amp; Missouri University of Science and Technology · arXiv:2603.19279</div>
+        <div class="pub-abstract">A comprehensive survey and practical guide to multilingual hate speech detection and counterspeech generation. We analyze why monolingual systems fail in non-English and code-mixed contexts and present a structured three-phase framework — task design, data curation, and evaluation — drawing on state-of-the-art datasets, models, and metrics to advance inclusive online safety.</div>
         <div class="pub-links">
-          <a href="https://arxiv.org/abs/2603.19279" target="_blank" class="pub-link teal">arXiv</a>
+          <a href="https://arxiv.org/abs/2603.19279" target="_blank" class="pub-link blue">[arXiv]</a>
+          <a href="https://scholar.google.com/citations?user=fRfD82IAAAAJ&hl=en" target="_blank" class="pub-link gray">[Google Scholar]</a>
         </div>
       </div>
     </div>
 
   </div>
-</section>
+</div>
 
 <!-- RESEARCH -->
-<section id="research">
-  <div class="section-header fade-up">
-    <span class="section-num">03 / projects</span>
-    <h2 class="section-title">Research &amp; Projects</h2>
-    <div class="section-line"></div>
+<div class="section-wrap" id="research">
+  <div class="sec-head fade-up">
+    <span class="sec-label">03</span>
+    <h2 class="sec-title">Research &amp; Projects</h2>
+    <div class="sec-rule"></div>
   </div>
   <div class="research-grid">
-    <div class="research-card fade-up"><span class="research-icon">🧬</span><div class="research-title">Genomic Beacon Defense</div><div class="research-desc">Designing defenses against membership inference attacks on genomic Beacon systems to protect sensitive genetic information while preserving research utility.</div></div>
-    <div class="research-card fade-up"><span class="research-icon">🌐</span><div class="research-title">ParsCN Dataset</div><div class="research-desc">Built the first comprehensive Persian counter-narrative dataset (1,100 pairs) using a scalable multi-stage annotation framework combining human expertise and LLM augmentation.</div></div>
-    <div class="research-card fade-up"><span class="research-icon">🤖</span><div class="research-title">Augmented-Hater MSCBT</div><div class="research-desc">Multi-stacked CNN-BiLSTM-Transformer system for detecting hate speech in 7 languages, designed for social media content moderation APIs at scale.</div></div>
-    <div class="research-card fade-up"><span class="research-icon">🧊</span><div class="research-title">Arctic Sea Ice Forecasting (EDACoL)</div><div class="research-desc">Hybrid model with dual multi-head attention and ConvLSTM, fusing daily and monthly climate data to forecast Arctic sea ice concentration.</div></div>
+    <div class="research-card fade-up"><span class="research-icon">🧬</span><div class="research-title">Genomic Beacon Defense</div><div class="research-desc">Designing defenses against membership inference attacks on genomic Beacon systems to protect sensitive genetic information while preserving the utility of shared public health databases.</div></div>
+    <div class="research-card fade-up"><span class="research-icon">🌐</span><div class="research-title">ParsCN — Persian Counter-Narrative Dataset</div><div class="research-desc">First comprehensive Persian counter-narrative dataset (1,100 pairs) built via a multi-stage framework combining expert annotation with LLM augmentation and semantic retrieval.</div></div>
+    <div class="research-card fade-up"><span class="research-icon">🤖</span><div class="research-title">Augmented-Hater MSCBT</div><div class="research-desc">Multi-stacked CNN-BiLSTM-Transformer system for detecting hate speech across 7 languages, designed for integration into social media content moderation APIs.</div></div>
+    <div class="research-card fade-up"><span class="research-icon">🧊</span><div class="research-title">Arctic Sea Ice Forecasting (EDACoL)</div><div class="research-desc">Hybrid ConvLSTM model with dual multi-head attention, fusing daily and monthly climate data to predict Arctic sea ice concentration.</div></div>
     <div class="research-card fade-up"><span class="research-icon">🌍</span><div class="research-title">SentiGerman</div><div class="research-desc">Led a team at IPM Institute applying BERT and RoBERTa to German sentiment classification — applicable in social media monitoring and customer feedback analysis.</div></div>
-    <div class="research-card fade-up"><span class="research-icon">⚖️</span><div class="research-title">Fair Job Success Prediction</div><div class="research-desc">Designed a fair, interpretable hiring prediction system focusing on bias mitigation and explainability for ethical AI-driven recruitment decisions.</div></div>
+    <div class="research-card fade-up"><span class="research-icon">⚖️</span><div class="research-title">Fair Job Success Prediction</div><div class="research-desc">Interpretable hiring prediction system with bias mitigation and explainability to enable fair, ethical AI-driven recruitment decisions in HR technology.</div></div>
   </div>
-  <div style="margin-top:2.5rem;text-align:center;" class="fade-up">
-    <a href="https://github.com/zahrasafdari" target="_blank" class="btn btn-outline">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-      View All Projects on GitHub
+  <div style="margin-top:1.8rem;" class="fade-up">
+    <a href="https://github.com/zahrasafdari" target="_blank" class="btn btn-outline" style="font-size:0.8rem;">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+      View all projects on GitHub
     </a>
   </div>
-</section>
+</div>
 
 <!-- CV -->
-<section id="cv">
-  <div class="section-header fade-up">
-    <span class="section-num">04 / cv</span>
-    <h2 class="section-title">Curriculum Vitae</h2>
-    <div class="section-line"></div>
+<div class="section-wrap" id="cv">
+  <div class="sec-head fade-up">
+    <span class="sec-label">04</span>
+    <h2 class="sec-title">Curriculum Vitae</h2>
+    <div class="sec-rule"></div>
   </div>
-  <div class="fade-up" style="text-align:center;padding:3rem 0;">
-    <p style="font-family:var(--serif);font-size:1.25rem;font-weight:400;color:var(--text-soft);margin-bottom:2rem;line-height:1.7;">
-      Download my full CV for details on my education,<br>research experience, publications, and skills.
+  <div class="fade-up" style="text-align:center;padding:2.5rem 0 1rem;">
+    <p style="font-family:var(--serif);font-size:1.08rem;color:var(--text-soft);margin-bottom:1.5rem;line-height:1.7;">
+      My full CV includes details on education, research experience,<br>publications, technical skills, and certifications.
     </p>
-    <a href="YOUR_CV_LINK_HERE" target="_blank" class="btn btn-primary">↓ &nbsp;Download CV</a>
+    <a href="YOUR_CV_LINK_HERE" target="_blank" class="btn btn-primary">↓ &nbsp;Download Full CV (PDF)</a>
   </div>
-</section>
+</div>
 
 <!-- TEACHING -->
-<section id="teaching">
-  <div class="section-header fade-up">
-    <span class="section-num">05 / teaching</span>
-    <h2 class="section-title">Teaching</h2>
-    <div class="section-line"></div>
+<div class="section-wrap" id="teaching">
+  <div class="sec-head fade-up">
+    <span class="sec-label">05</span>
+    <h2 class="sec-title">Teaching</h2>
+    <div class="sec-rule"></div>
   </div>
-  <p style="font-size:0.92rem;color:var(--text-soft);line-height:1.85;max-width:600px;margin-bottom:2.5rem;" class="fade-up">
-    With 7+ courses taught across three institutions, I am committed to making complex topics in computer science and AI accessible through mentorship and hands-on guidance.
+  <p style="font-size:0.9rem;color:var(--text-soft);line-height:1.8;max-width:620px;margin-bottom:2rem;" class="fade-up">
+    I have served as a teaching assistant and tutor for 8+ courses across three institutions, supporting students in computer science and AI through office hours, lab sessions, and course design.
   </p>
-  <div class="teaching-grid">
-    <div class="teaching-card fade-up"><div class="teaching-role">Teaching Assistant</div><div class="teaching-course">CS 233 — Digital Design</div><div class="teaching-meta">Bilkent University · Spring 2026</div></div>
-    <div class="teaching-card fade-up"><div class="teaching-role">Teaching Assistant</div><div class="teaching-course">CS 233 — Digital Design</div><div class="teaching-meta">Bilkent University · Fall 2025</div></div>
-    <div class="teaching-card fade-up"><div class="teaching-role">Teaching Assistant</div><div class="teaching-course">Artificial Intelligence Workshop</div><div class="teaching-meta">IPM Institute · Summer 2023</div></div>
-    <div class="teaching-card fade-up"><div class="teaching-role">Head Teaching Assistant</div><div class="teaching-course">Basics of Computer and Programming</div><div class="teaching-meta">University of Tabriz · Feb 2021 – Feb 2024</div></div>
-    <div class="teaching-card fade-up"><div class="teaching-role">Teaching Assistant</div><div class="teaching-course">Data Structures &amp; Advanced Programming</div><div class="teaching-meta">University of Tabriz · Feb 2021 – Feb 2024</div><div class="teaching-note">Also TA for Specialized Language and lead tutor of the Python Programming Workshop.</div></div>
-    <div class="teaching-card fade-up"><div class="teaching-role">Tutor</div><div class="teaching-course">Data Structures &amp; Algorithm Design</div><div class="teaching-meta">Meshkat Holdings · Jun 2021 – Aug 2022</div></div>
+  <div class="fade-up">
+    <table class="teaching-table">
+      <thead>
+        <tr>
+          <th>Course</th>
+          <th>Title &amp; Role</th>
+          <th>Term</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CS 233<div class="teaching-inst">Bilkent University</div></td>
+          <td><span class="ta-badge ta">TA</span>Digital Design</td>
+          <td>Spring 2026</td>
+        </tr>
+        <tr>
+          <td>CS 125<div class="teaching-inst">Bilkent University</div></td>
+          <td><span class="ta-badge ta">TA</span>Introduction to Data Analysis for Social Sciences</td>
+          <td>Summer 2026</td>
+        </tr>
+        <tr>
+          <td>CS 115<div class="teaching-inst">Bilkent University</div></td>
+          <td><span class="ta-badge ta">TA</span>Introduction to Programming in Python</td>
+          <td>Summer 2026</td>
+        </tr>
+        <tr>
+          <td>CS 233<div class="teaching-inst">Bilkent University</div></td>
+          <td><span class="ta-badge ta">TA</span>Digital Design</td>
+          <td>Fall 2025</td>
+        </tr>
+        <tr>
+          <td>AI Workshop<div class="teaching-inst">IPM Institute</div></td>
+          <td><span class="ta-badge ta">TA</span>Artificial Intelligence Summer Workshop</td>
+          <td>Summer 2023</td>
+        </tr>
+        <tr>
+          <td>CS Basics<div class="teaching-inst">Univ. of Tabriz</div></td>
+          <td><span class="ta-badge hta">Head TA</span>Basics of Computer and Programming</td>
+          <td>2021 – 2024</td>
+        </tr>
+        <tr>
+          <td>Data Struct.<div class="teaching-inst">Univ. of Tabriz</div></td>
+          <td><span class="ta-badge ta">TA</span>Data Structures &amp; Advanced Programming · also TA for Specialized Language; lead tutor of Python Programming Workshop</td>
+          <td>2021 – 2024</td>
+        </tr>
+        <tr>
+          <td>CS Courses<div class="teaching-inst">Meshkat Holdings</div></td>
+          <td><span class="ta-badge tutor">Tutor</span>Data Structures &amp; Algorithm Design</td>
+          <td>2021 – 2022</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-</section>
+</div>
 
 <!-- CONTACT -->
-<section id="contact">
-  <div class="section-header fade-up">
-    <span class="section-num">06 / contact</span>
-    <h2 class="section-title">Get in Touch</h2>
-    <div class="section-line"></div>
+<div class="section-wrap" id="contact">
+  <div class="sec-head fade-up">
+    <span class="sec-label">06</span>
+    <h2 class="sec-title">Contact</h2>
+    <div class="sec-rule"></div>
   </div>
-  <div class="contact-grid">
+  <div class="contact-cols">
     <div class="fade-up">
-      <p class="contact-intro">
-        Always happy to discuss <em>research</em>, collaborations, or new opportunities.
+      <p class="contact-lead">
+        I welcome inquiries about research collaborations, academic opportunities, or questions about my work. Please feel free to reach out by email or through any of the platforms below.
       </p>
-      <div class="contact-links">
-        <a href="mailto:zahra.safdari@bilkent.edu.tr" class="contact-link">
-          <div class="c-icon">✉</div>
-          <div><div class="c-label">Email</div><div>zahra.safdari@bilkent.edu.tr</div></div>
-        </a>
-        <a href="https://www.linkedin.com/in/zahra-safdari-s81/" target="_blank" class="contact-link">
-          <div class="c-icon">in</div>
-          <div><div class="c-label">LinkedIn</div><div>zahra-safdari-s81</div></div>
-        </a>
-        <a href="https://github.com/zahrasafdari" target="_blank" class="contact-link">
-          <div class="c-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></div>
-          <div><div class="c-label">GitHub</div><div>zahrasafdari</div></div>
-        </a>
-        <a href="https://arxiv.org/search/?query=Zahra+Safdari&searchtype=author" target="_blank" class="contact-link">
-          <div class="c-icon">arXiv</div>
-          <div><div class="c-label">arXiv</div><div>Zahra Safdari Fesaghandis</div></div>
-        </a>
-      </div>
+      <a href="mailto:zahra.safdari@bilkent.edu.tr" class="contact-item">
+        <div class="c-ico">✉</div>
+        <div><div class="c-lbl">Email</div><div class="c-val">zahra.safdari@bilkent.edu.tr</div></div>
+      </a>
+      <a href="https://scholar.google.com/citations?user=fRfD82IAAAAJ&hl=en" target="_blank" class="contact-item">
+        <div class="c-ico">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 10a8 8 0 0 1 7.162 3.44L24 9.5z"/></svg>
+        </div>
+        <div><div class="c-lbl">Google Scholar</div><div class="c-val">Zahra Safdari Fesaghandis</div></div>
+      </a>
+      <a href="https://www.linkedin.com/in/zahra-safdari-s81/" target="_blank" class="contact-item">
+        <div class="c-ico">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </div>
+        <div><div class="c-lbl">LinkedIn</div><div class="c-val">zahra-safdari-s81</div></div>
+      </a>
+      <a href="https://github.com/zahrasafdari" target="_blank" class="contact-item">
+        <div class="c-ico">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        </div>
+        <div><div class="c-lbl">GitHub</div><div class="c-val">zahrasafdari</div></div>
+      </a>
+      <a href="https://arxiv.org/search/?query=Zahra+Safdari&searchtype=author" target="_blank" class="contact-item">
+        <div class="c-ico" style="font-size:0.58rem;font-weight:700;letter-spacing:-0.03em;color:var(--text-soft);">arXiv</div>
+        <div><div class="c-lbl">arXiv</div><div class="c-val">Zahra Safdari Fesaghandis</div></div>
+      </a>
     </div>
     <div class="fade-up">
-      <div class="contact-form">
-        <div><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="Jane Smith" id="cf-name"></div>
-        <div><label class="form-label">Email</label><input class="form-input" type="email" placeholder="jane@university.edu"></div>
-        <div><label class="form-label">Message</label><textarea class="form-textarea" placeholder="Your message…" id="cf-msg"></textarea></div>
-        <button class="btn-send" onclick="var n=document.getElementById('cf-name').value,m=document.getElementById('cf-msg').value;window.location.href='mailto:zahra.safdari@bilkent.edu.tr?subject=Website Contact from '+encodeURIComponent(n)+'&body='+encodeURIComponent(m);">Send Message →</button>
+      <div class="form-wrap">
+        <h3>Send a Message</h3>
+        <div class="form-group">
+          <label class="form-label">Name</label>
+          <input class="form-input" type="text" placeholder="Your name" id="cf-name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" placeholder="Write your message here…" id="cf-msg"></textarea>
+        </div>
+        <button class="btn-send" onclick="var n=document.getElementById('cf-name').value,m=document.getElementById('cf-msg').value;window.location.href='mailto:zahra.safdari@bilkent.edu.tr?subject=Website Contact from '+encodeURIComponent(n)+'&body='+encodeURIComponent(m);">Send Message</button>
       </div>
     </div>
   </div>
-</section>
+</div>
 
+<!-- FOOTER -->
 <footer>
-  <div class="footer-l">© 2026 <span>Zahra Safdari Fesaghandis</span> · Bilkent University</div>
-  <div class="footer-r">ASAP Lab · Ankara, Turkey</div>
+  <div>© 2026 <span>Zahra Safdari Fesaghandis</span> · Bilkent University, Department of Computer Engineering</div>
+  <div>ASAP Lab · Ankara, Turkey</div>
 </footer>
 
 <script>
-  // Fade-up on scroll
   const obs = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
+    entries.forEach((e) => {
       if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), 80 * (parseInt(e.target.dataset.delay) || 0));
+        setTimeout(() => e.target.classList.add('visible'), 70 * (parseInt(e.target.dataset.delay) || 0));
         obs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.fade-up').forEach((el, i) => { el.dataset.delay = i % 6; obs.observe(el); });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.fade-up').forEach((el, i) => { el.dataset.delay = i % 5; obs.observe(el); });
 
-  // Active nav
-  const secs = document.querySelectorAll('section[id]');
+  const secs = document.querySelectorAll('[id]');
   const lnks = document.querySelectorAll('.nav-links a');
   window.addEventListener('scroll', () => {
     let cur = '';
-    secs.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+    secs.forEach(s => { if (window.scrollY >= s.offsetTop - 90) cur = s.id; });
     lnks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
   });
 </script>
